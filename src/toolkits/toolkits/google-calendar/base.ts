@@ -7,6 +7,8 @@ import {
   listEventsTool,
   getEventTool,
   searchEventsTool,
+  createEventTool,
+  findAvailabilityTool,
 } from "./tools";
 
 export const googleCalendarParameters = z.object({});
@@ -21,6 +23,8 @@ export const baseGoogleCalendarToolkitConfig: ToolkitConfig<
     [GoogleCalendarTools.ListEvents]: listEventsTool,
     [GoogleCalendarTools.GetEvent]: getEventTool,
     [GoogleCalendarTools.SearchEvents]: searchEventsTool,
+    [GoogleCalendarTools.CreateEvent]: createEventTool,
+    [GoogleCalendarTools.FindAvailability]: findAvailabilityTool,
   },
   parameters: googleCalendarParameters,
 };

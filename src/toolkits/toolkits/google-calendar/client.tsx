@@ -7,6 +7,8 @@ import {
   googleCalendarListEventsToolConfigClient,
   googleCalendarGetEventToolConfigClient,
   googleCalendarSearchEventsToolConfigClient,
+  googleCalendarCreateEventToolConfigClient,
+  googleCalendarFindAvailabilityToolConfigClient,
 } from "./tools/client";
 import { api } from "@/trpc/react";
 import { Button } from "@/components/ui/button";
@@ -146,5 +148,9 @@ export const googleCalendarClientToolkit = createClientToolkit(
     [GoogleCalendarTools.GetEvent]: googleCalendarGetEventToolConfigClient,
     [GoogleCalendarTools.SearchEvents]:
       googleCalendarSearchEventsToolConfigClient,
+    [GoogleCalendarTools.CreateEvent]:
+      googleCalendarCreateEventToolConfigClient,
+    [GoogleCalendarTools.FindAvailability]:
+      googleCalendarFindAvailabilityToolConfigClient,
   },
 );
