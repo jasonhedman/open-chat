@@ -12,6 +12,7 @@ import {
   type ServerToolkitNames,
   type ServerToolkitParameters,
 } from "./shared";
+import { spotifyToolkitServer } from "./spotify/server";
 
 type ServerToolkits = {
   [K in Toolkits]: ServerToolkit<
@@ -29,6 +30,7 @@ export const serverToolkits: ServerToolkits = {
   [Toolkits.Memory]: mem0ToolkitServer,
   [Toolkits.Notion]: notionToolkitServer,
   [Toolkits.E2B]: e2bToolkitServer,
+  [Toolkits.Spotify] : spotifyToolkitServer
 };
 
 export function getServerToolkit<T extends Toolkits>(

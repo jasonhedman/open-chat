@@ -9,7 +9,6 @@ export const ConnectedAccounts = async () => {
   const accounts = await api.accounts.getAccounts({
     limit: 100,
   });
-
   return (
     <div className="flex flex-col gap-2">
       {providers.map((provider) => {

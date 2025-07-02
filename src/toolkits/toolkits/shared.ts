@@ -14,6 +14,8 @@ import type { notionParameters } from "./notion/base";
 import type { NotionTools } from "./notion/tools";
 import type { e2bParameters } from "./e2b/base";
 import type { E2BTools } from "./e2b/tools/tools";
+import type { spotifyParameters } from "./spotify/base";
+import type { SpotifyTools } from "./spotify/tools";
 
 export enum Toolkits {
   Exa = "exa",
@@ -24,6 +26,7 @@ export enum Toolkits {
   Memory = "memory",
   Notion = "notion",
   E2B = "e2b",
+ Spotify = "spotify",
 }
 
 export type ServerToolkitNames = {
@@ -35,6 +38,7 @@ export type ServerToolkitNames = {
   [Toolkits.Memory]: Mem0Tools;
   [Toolkits.Notion]: NotionTools;
   [Toolkits.E2B]: E2BTools;
+  [Toolkits.Spotify]: SpotifyTools;
 };
 
 export type ServerToolkitParameters = {
@@ -46,4 +50,5 @@ export type ServerToolkitParameters = {
   [Toolkits.Memory]: typeof mem0Parameters.shape;
   [Toolkits.Notion]: typeof notionParameters.shape;
   [Toolkits.E2B]: typeof e2bParameters.shape;
+  [Toolkits.Spotify]: typeof spotifyParameters.shape;
 };

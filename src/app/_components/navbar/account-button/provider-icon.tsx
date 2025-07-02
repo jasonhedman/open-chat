@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { SiGithub, SiNotion, SiX } from "@icons-pack/react-simple-icons";
+import { SiGithub, SiNotion,SiSpotify, SiX } from "@icons-pack/react-simple-icons";
 
 interface Props {
   provider: string;
@@ -32,6 +32,7 @@ export const AuthProviderIcon: React.FC<Props> = ({ provider, className }) => {
       GitHub: SiGithub,
       Twitter: SiX,
       Notion: SiNotion,
+      Spotify: SiSpotify,
     }[provider] ?? null;
 
   return Icon ? <Icon className={cn("size-4", className)} /> : null;

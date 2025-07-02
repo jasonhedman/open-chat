@@ -9,6 +9,7 @@ import TwitterProvider, {
   type TwitterProfile,
 } from "next-auth/providers/twitter";
 import NotionProvider, { type NotionProfile } from "next-auth/providers/notion";
+import SpotifyProvider, { type SpotifyProfile } from "next-auth/providers/spotify";
 
 import type { OAuthConfig } from "next-auth/providers";
 
@@ -18,6 +19,7 @@ export const providers: (
   | OAuthConfig<GitHubProfile>
   | OAuthConfig<TwitterProfile>
   | OAuthConfig<NotionProfile>
+  | OAuthConfig<SpotifyProfile>
 )[] = [
   ...("AUTH_DISCORD_ID" in env && "AUTH_DISCORD_SECRET" in env
     ? [
@@ -64,4 +66,14 @@ export const providers: (
         }),
       ]
     : []),
+    ...("AUTH_SPOTIFY_ID" in env && "AUTH_SPOTIFY_SECRET" in env
+      ? [
+        // Add scopes here to read/write user information - refer https://developer.spotify.com/documentation/web-api/concepts/scopes
+        SpotifyProvider({
+            clientId: env.AUTH_SPOTIFY_ID,
+            clientSecret: env.AUTH_SPOTIFY_SECRET,
+            authorization:"https://accounts.spotify.com/authorize?scope=user-read-email playlist-read-private playlist-read-collaborative"
+          }),
+        ]
+      : []),
 ];
